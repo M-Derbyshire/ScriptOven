@@ -1,0 +1,8 @@
+{
+	"version": "1.0.0",
+	"buildFileName": "test.hta",
+	"buildDirectory": "./build",
+	"templatePath": "template.html",
+	"scriptDirectory": "./scripts",
+	"styleDirectory": "./styles"
+}

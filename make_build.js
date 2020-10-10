@@ -81,17 +81,17 @@ function loadSourceFilesIntoString(path)
 };
 
 
-//Defines the rule of what a tag string should look like.
-function generateTagFromTagName(name)
+//Generates a RegExp object, to be used to identify the tag with the given name
+function generateTagRegExpFromTagName(name)
 {
-	return "{{" + name + "}}";
+	return new RegExp(`{{\\s*${name}\\s*}}`);
 }
 
 
 //Replace a tag (in the given original string) with a new string value
 function replaceTagWithText(originalString, tagName, replacementText)
 {
-	return originalString.replace(generateTagFromTagName(tagName), replacementText);
+	return originalString.replace(generateTagRegExpFromTagName(tagName), replacementText);
 }
 
 

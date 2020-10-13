@@ -1,6 +1,6 @@
 {
 	"version": "1.0.0",
-	"buildFileName": "test.hta",
+	"buildFileName": "test.html",
 	"buildDirectory": "./build",
 	"templatePath": "template.html",
 	"scriptDirectory": "./scripts",

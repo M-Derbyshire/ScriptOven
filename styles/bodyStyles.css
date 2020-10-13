@@ -1,0 +1,20 @@
+body {
+	background: #20002c;
+	color: #c2c503;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	color: #009191;
+}
+
+a:hover {
+	color: #007979;
+}
+
+header, main, footer {
+	border: 1px solid #989b04;
+	border-radius: 0.5em;
+	margin: 0.5em auto;
+	padding: 0.5em;
+}

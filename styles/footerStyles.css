@@ -1,0 +1,10 @@
+footer p {
+	margin: 0.5em auto;
+	font-size: larger;
+}
+
+#profileLinksList {
+	list-style-type: none;
+	padding-left: 0.5em;
+	margin: 0.5em auto;
+}

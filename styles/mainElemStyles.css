@@ -34,6 +34,7 @@ main textarea:focus {
 
 #runButtonSection {
 	padding: 1em;
+	background: #01294b;
 }
 
 #runButtonSection button {

@@ -26,3 +26,7 @@ main textarea {
 main textarea:focus {
 	outline: none;
 }
+
+#runButtonSection button {
+	width: 100%;
+}

@@ -35,10 +35,6 @@ footer p {
 	margin: 0.5em auto;
 }
 
-main {
-	/* Need to set this up as a flex container */
-}
-
 main label {
 	font-weight: bold;
 }
@@ -79,9 +75,8 @@ main textarea {
 			</div>
 			
 			<div id="inTextSection">
-				<textarea id="inTextInput">Enter the text to be passed to the function here.</textarea>
+				<textarea id="inTextInput">Enter the text to be passed to the function here (Or upload a file with the button below).</textarea>
 				<div id="inTextFileUploadSection">
-					<label for="inTextFileInput">Or, upload a file:</label>
 					<input type="file" id="inTextFileInput" />
 				</div>
 			</div>
@@ -93,7 +88,7 @@ main textarea {
 			<div id="outTextSection">
 				<textarea id="outTextOuput">Results will be outputted here.</textarea>
 				<div id="outTextDownloadSection">
-					<button id="outTextDownloadButton">Download</button>
+					<button id="outTextDownloadButton">Download Output</button>
 				</div>
 			</div>	
 		</main>

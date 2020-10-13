@@ -18,3 +18,12 @@ header, main, footer {
 	margin: 0.5em auto;
 	padding: 0.5em;
 }
+
+button {
+	background: #007979;
+	color: #c2c503;
+}
+
+button:focus {
+	outline: none;
+}

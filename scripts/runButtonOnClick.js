@@ -38,6 +38,9 @@ function runFunctionOnInputText(functionText)
 		return;
 	}
 	
+	const inTextInput = document.getElementById("inTextInput");
+	const outTextOuput = document.getElementById("outTextOuput");
+	
 	populateDynamicScript(functionText);
-	main("foo");
+	main(inTextInput.value);
 }

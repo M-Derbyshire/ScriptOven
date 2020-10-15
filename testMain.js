@@ -1,4 +1,4 @@
 function main(a)
 {
-	console.log("main function run");
+	console.log("main function run: " + a);
 }

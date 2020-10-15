@@ -85,7 +85,27 @@ main textarea:focus {
 
 		</style>
 		<script id="standardScripts">
-			
+			//Defines the way that general errors will be handled
+function handleError(errorText)
+{
+	alert("Error: " + errorText);
+}
+
+// Will run when the Run Function button is clicked
+function runButtonOnClick()
+{
+	const scriptFileInput = document.getElementById("scriptFileInput");
+	const inTextInput = document.getElementById("inTextInput");
+	const outTextOutput = document.getElementById("outTextOuput");
+	
+	if(scriptFileInput.files.length === 0)
+	{
+		handleError("No script has been selected.");
+		return;
+	}
+}
+
+
 		</script>
 		
 		<script id="dynamicScript"></script>
@@ -111,7 +131,7 @@ main textarea:focus {
 			</div>
 			
 			<div id="runButtonSection">
-				<button>Run Function</button>
+				<button onclick="runButtonOnClick()">Run Function</button>
 			</div>
 			
 			<div id="outTextSection">

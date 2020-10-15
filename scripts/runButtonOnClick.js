@@ -48,7 +48,7 @@ function runFunctionOnInputText(functionText)
 	if(resultText == null)
 	{
 		handleError('The given "main" function ran, but it did not return a valid value.');
-		return
+		return;
 	}
 	
 	outTextOuput.value = resultText;

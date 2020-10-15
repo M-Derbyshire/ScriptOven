@@ -42,5 +42,14 @@ function runFunctionOnInputText(functionText)
 	const outTextOuput = document.getElementById("outTextOuput");
 	
 	populateDynamicScript(functionText);
-	main(inTextInput.value);
+	const resultText = main(inTextInput.value);
+	
+	//normal equality, so will also catch undefined
+	if(resultText == null)
+	{
+		handleError('The given "main" function ran, but it did not return a valid value.');
+		return
+	}
+	
+	outTextOuput.value = resultText;
 }

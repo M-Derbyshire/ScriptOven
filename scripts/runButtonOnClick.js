@@ -38,5 +38,5 @@ function runFunctionOnInputText(functionText)
 		return;
 	}
 	
-	
+	populateDynamicScript(functionText);
 }

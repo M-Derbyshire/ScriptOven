@@ -91,6 +91,21 @@ function handleError(errorText)
 	alert("Error: " + errorText);
 }
 
+//Populates the dynamicScript element with the given script text
+function populateDynamicScript(scriptText)
+{
+	const dynamicScript = document.getElementById("dynamicScript");
+	
+	try 
+	{
+		dynamicScript.text = scriptText;
+	}
+	catch(err)
+	{
+		handleError(err);
+	}
+}
+
 // Will run when the Run Function button is clicked
 function runButtonOnClick()
 {
@@ -131,7 +146,7 @@ function runFunctionOnInputText(functionText)
 		return;
 	}
 	
-	
+	populateDynamicScript(functionText);
 }
 
 

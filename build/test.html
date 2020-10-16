@@ -101,16 +101,7 @@ function mainFunctionDefinitionIsCorrect(scriptText)
 //Populates the dynamicScript element with the given script text
 function populateDynamicScript(scriptText)
 {
-	const dynamicScript = document.getElementById("dynamicScript");
-	
-	try 
-	{
-		dynamicScript.text = scriptText;
-	}
-	catch(err)
-	{
-		handleError(err);
-	}
+	document.getElementById("dynamicScript").text = scriptText;
 }
 
 // Will run when the Run Function button is clicked
@@ -154,9 +145,18 @@ function runFunctionOnInputText(functionText)
 	
 	const inTextInput = document.getElementById("inTextInput");
 	const outTextOuput = document.getElementById("outTextOuput");
+	let resultText;
 	
-	populateDynamicScript(functionText);
-	const resultText = main(inTextInput.value);
+	try 
+	{
+		populateDynamicScript(functionText);
+		resultText = main(inTextInput.value);
+	} 
+	catch (err) 
+	{
+		handleError(err);
+		return;
+	}
 	
 	//normal equality, so will also catch undefined
 	if(resultText == null)

@@ -11,9 +11,18 @@ function runFunctionOnInputText(functionText)
 	
 	const inTextInput = document.getElementById("inTextInput");
 	const outTextOuput = document.getElementById("outTextOuput");
+	let resultText;
 	
-	populateDynamicScript(functionText);
-	const resultText = main(inTextInput.value);
+	try 
+	{
+		populateDynamicScript(functionText);
+		resultText = main(inTextInput.value);
+	} 
+	catch (err) 
+	{
+		handleError(err);
+		return;
+	}
 	
 	//normal equality, so will also catch undefined
 	if(resultText == null)

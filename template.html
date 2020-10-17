@@ -41,11 +41,15 @@
 			
 			<div id="outTextSection">
 				<h2>Function Output</h2>
-				<textarea id="outTextOuput" wrap="off">Results will be outputted here.</textarea>
-				<div id="outTextDownloadSection">
-					<button id="outTextDownloadButton">Download Output</button>
-				</div>
-			</div>	
+				<textarea id="outTextOuput" wrap="off" readonly>Results will be outputted here.</textarea>
+				
+				<!-- The action for the below form will be set to the download link, 
+					whenever the out-text changes -->
+				<a id="outTextDownloadLink" download="generated_text.txt">
+					<!-- The button should be enabled when the script is run -->
+					<button disabled id="outTextDownloadButton">Download Output</button>
+				</a>
+			</div>
 		</main>
 		
 		<footer>

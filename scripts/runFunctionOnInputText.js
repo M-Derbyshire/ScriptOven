@@ -32,4 +32,7 @@ function runFunctionOnInputText(functionText)
 	}
 	
 	outTextOuput.value = resultText;
+	
+	//Need to update the download URL on the out-text download link
+	updateOutTextDownloadURL();
 }

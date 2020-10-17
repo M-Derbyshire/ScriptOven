@@ -197,6 +197,34 @@ function runFunctionOnInputText(functionText)
 	}
 	
 	outTextOuput.value = resultText;
+	
+	//Need to update the download URL on the out-text download link
+	updateOutTextDownloadURL();
+}
+
+//Set the URL on the download link for the out-text
+function updateOutTextDownloadURL()
+{
+	// See https://shinglyu.com/web/2019/02/09/js_download_as_file.html
+	
+	const outTextArea = document.getElementById("outTextOuput");
+	const outTextDownloadLink = document.getElementById("outTextDownloadLink");
+	const outTextDownloadButton = document.getElementById("outTextDownloadButton");
+	
+	const dataForDownload = new Blob([outTextArea.value], {type: "text/plain"});
+	
+	// We want to delete the last URL. If the user is working with a lot of
+	//data, and they're working through multiple files, we don't want to keep
+	//all of this in memory.
+	if(outTextDownloadLink.hasAttribute("href"))
+	{
+		window.URL.revokeObjectURL(outTextDownloadLink.href);
+	}
+	
+	const downloadURL = window.URL.createObjectURL(dataForDownload);
+	
+	outTextDownloadLink.href = downloadURL;
+	outTextDownloadButton.disabled = false;
 }
 
 
@@ -230,11 +258,15 @@ function runFunctionOnInputText(functionText)
 			
 			<div id="outTextSection">
 				<h2>Function Output</h2>
-				<textarea id="outTextOuput" wrap="off">Results will be outputted here.</textarea>
-				<div id="outTextDownloadSection">
-					<button id="outTextDownloadButton">Download Output</button>
-				</div>
-			</div>	
+				<textarea id="outTextOuput" wrap="off" readonly>Results will be outputted here.</textarea>
+				
+				<!-- The action for the below form will be set to the download link, 
+					whenever the out-text changes -->
+				<a id="outTextDownloadLink" download="generated_text.txt">
+					<!-- The button should be enabled when the script is run -->
+					<button disabled id="outTextDownloadButton">Download Output</button>
+				</a>
+			</div>
 		</main>
 		
 		<footer>

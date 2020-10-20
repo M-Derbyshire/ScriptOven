@@ -40,3 +40,7 @@ main textarea:focus {
 #runButtonSection button {
 	font-size: x-large;
 }
+
+#downloadFileNameInput {
+	max-width: 100%;
+}

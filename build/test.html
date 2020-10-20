@@ -85,7 +85,20 @@ main textarea:focus {
 
 		</style>
 		<script id="standardScripts">
-			//Defines the way that general errors will be handled
+			//A keyup event for when the download filename is changed.
+//This will change the outTextDownloadLink download filename.
+//Better to use keyup, than onchange, to be sure that the
+//filename is always updated correctly, if focus is only lost
+//by clicking on the download button.
+function downloadFilenameInputKeyUp()
+{
+	const downloadFileNameInput = document.getElementById("downloadFileNameInput");
+	const outTextDownloadLink = document.getElementById("outTextDownloadLink");
+	
+	outTextDownloadLink.download = downloadFileNameInput.value;
+}
+
+//Defines the way that general errors will be handled
 function handleError(errorText)
 {
 	alert("Error: " + errorText);
@@ -262,8 +275,10 @@ function updateOutTextDownloadURL()
 				
 				<!-- The action for the below form will be set to the download link, 
 					whenever the out-text changes -->
+				<!-- The file name of the download will be changed on keyup -->
+				<input type="text" id="downloadFileNameInput" value="File Name" onkeyup="downloadFilenameInputKeyUp()" />
 				<a id="outTextDownloadLink" download="generated_text.txt">
-					<!-- The button should be enabled when the script is run -->
+					<!-- The button should be enabled when the main function is run -->
 					<button disabled id="outTextDownloadButton">Download Output</button>
 				</a>
 			</div>

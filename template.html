@@ -45,8 +45,10 @@
 				
 				<!-- The action for the below form will be set to the download link, 
 					whenever the out-text changes -->
+				<!-- The file name of the download will be changed on keyup -->
+				<input type="text" id="downloadFileNameInput" value="File Name" onkeyup="downloadFilenameInputKeyUp()" />
 				<a id="outTextDownloadLink" download="generated_text.txt">
-					<!-- The button should be enabled when the script is run -->
+					<!-- The button should be enabled when the main function is run -->
 					<button disabled id="outTextDownloadButton">Download Output</button>
 				</a>
 			</div>

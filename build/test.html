@@ -98,8 +98,10 @@ function downloadFilenameInputKeyUp()
 {
 	const downloadFileNameInput = document.getElementById("downloadFileNameInput");
 	const outTextDownloadLink = document.getElementById("outTextDownloadLink");
+	const outTextDownloadButton = document.getElementById("outTextDownloadButton");
 	
 	outTextDownloadLink.download = downloadFileNameInput.value;
+	setDownloadButtonDisabledStatus();
 }
 
 //Defines the way that general errors will be handled
@@ -219,6 +221,24 @@ function runFunctionOnInputText(functionText)
 	updateOutTextDownloadURL();
 }
 
+//Will check if the out-text download button should be enabled, and
+//then set it accordingly
+function setDownloadButtonDisabledStatus()
+{
+	const downloadFileNameInput = document.getElementById("downloadFileNameInput");
+	const outTextDownloadLink = document.getElementById("outTextDownloadLink");
+	const outTextDownloadButton = document.getElementById("outTextDownloadButton");
+	
+	if(outTextDownloadLink.hasAttribute("href") && downloadFileNameInput.value !== "")
+	{
+		outTextDownloadButton.disabled = false;
+	}
+	else
+	{
+		outTextDownloadButton.disabled = true;
+	}
+}
+
 //Set the URL on the download link for the out-text
 function updateOutTextDownloadURL()
 {
@@ -226,7 +246,6 @@ function updateOutTextDownloadURL()
 	
 	const outTextArea = document.getElementById("outTextOuput");
 	const outTextDownloadLink = document.getElementById("outTextDownloadLink");
-	const outTextDownloadButton = document.getElementById("outTextDownloadButton");
 	
 	const dataForDownload = new Blob([outTextArea.value], {type: "text/plain"});
 	
@@ -241,7 +260,7 @@ function updateOutTextDownloadURL()
 	const downloadURL = window.URL.createObjectURL(dataForDownload);
 	
 	outTextDownloadLink.href = downloadURL;
-	outTextDownloadButton.disabled = false;
+	setDownloadButtonDisabledStatus();
 }
 
 

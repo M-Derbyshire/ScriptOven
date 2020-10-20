@@ -7,6 +7,8 @@ function downloadFilenameInputKeyUp()
 {
 	const downloadFileNameInput = document.getElementById("downloadFileNameInput");
 	const outTextDownloadLink = document.getElementById("outTextDownloadLink");
+	const outTextDownloadButton = document.getElementById("outTextDownloadButton");
 	
 	outTextDownloadLink.download = downloadFileNameInput.value;
+	setDownloadButtonDisabledStatus();
 }

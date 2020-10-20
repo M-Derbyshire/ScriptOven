@@ -5,7 +5,6 @@ function updateOutTextDownloadURL()
 	
 	const outTextArea = document.getElementById("outTextOuput");
 	const outTextDownloadLink = document.getElementById("outTextDownloadLink");
-	const outTextDownloadButton = document.getElementById("outTextDownloadButton");
 	
 	const dataForDownload = new Blob([outTextArea.value], {type: "text/plain"});
 	
@@ -20,5 +19,5 @@ function updateOutTextDownloadURL()
 	const downloadURL = window.URL.createObjectURL(dataForDownload);
 	
 	outTextDownloadLink.href = downloadURL;
-	outTextDownloadButton.disabled = false;
+	setDownloadButtonDisabledStatus();
 }

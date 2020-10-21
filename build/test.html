@@ -249,30 +249,29 @@ function runFunctionOnInputText(functionText)
 	
 	const inTextInput = document.getElementById("inTextInput");
 	const outTextOuput = document.getElementById("outTextOuput");
-	let resultText;
 	
 	try 
 	{
 		populateDynamicScript(functionText);
-		resultText = main(inTextInput.value);
+		const resultText = main(inTextInput.value);
+		
+		//normal equality, so will also catch undefined
+		if(resultText == null)
+		{
+			handleError('The given "main" function ran, but it did not return a valid value.');
+			return;
+		}
+		
+		outTextOuput.value = resultText;
+		
+		//Need to update the download URL on the out-text download link
+		updateOutTextDownloadURL();
 	} 
 	catch (err) 
 	{
 		handleError(err);
 		return;
 	}
-	
-	//normal equality, so will also catch undefined
-	if(resultText == null)
-	{
-		handleError('The given "main" function ran, but it did not return a valid value.');
-		return;
-	}
-	
-	outTextOuput.value = resultText;
-	
-	//Need to update the download URL on the out-text download link
-	updateOutTextDownloadURL();
 }
 
 //Will check if the out-text download button should be enabled, and

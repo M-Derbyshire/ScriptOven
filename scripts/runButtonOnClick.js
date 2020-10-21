@@ -1,5 +1,5 @@
 // Will run when the Run Function button is clicked
-function runButtonOnClick()
+function runButtonOnClick(e)
 {
 	const scriptFileInput = document.getElementById("scriptFileInput");
 	const inTextInput = document.getElementById("inTextInput");
@@ -13,10 +13,10 @@ function runButtonOnClick()
 	
 	//Get the file text and start the process
 	const fileReader = new FileReader();
-	fileReader.addEventListener('load', (event) => {
+	fileReader.addEventListener('load', (fileReadEvent) => {
 		try
 		{
-			runFunctionOnInputText(event.target.result);
+			runFunctionOnInputText(fileReadEvent.target.result);
 		}
 		catch(err)
 		{
@@ -25,3 +25,5 @@ function runButtonOnClick()
 	});
 	fileReader.readAsText(scriptFileInput.files[0]);
 }
+
+document.getElementById("runFunctionButton").onclick = runButtonOnClick;

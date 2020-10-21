@@ -6,10 +6,6 @@
 		<style>
 			{{ style }}
 		</style>
-		<script id="standardScripts">
-			{{ script }}
-		</script>
-		
 		<script id="dynamicScript"></script>
 	</head>
 	<body>
@@ -28,7 +24,7 @@
 				<h2>Function Input</h2>
 				<textarea id="inTextInput" wrap="off">Enter the text to be passed to the function here (Or upload a file with the button below).</textarea>
 				<div id="inTextFileUploadSection">
-					<input type="file" id="inTextFileInput" onchange="inTextFileInputEventListener()" />
+					<input type="file" id="inTextFileInput" />
 				</div>
 			</div>
 			
@@ -58,5 +54,10 @@
 				<li><a id="githubLink" target="_blank" href="https://github.com/M-Derbyshire">My GitHub</a></li>
 			</ul>
 		</footer>
+		
+		
+		<script id="standardScripts">
+			{{ script }}
+		</script>
 	</body>
 </html>

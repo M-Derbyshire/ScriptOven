@@ -265,6 +265,19 @@ function csvLineToStringArray(line)
 
 
 
+// Takes a string (with multiple lines), and returns an array where
+//each line is an item.
+function stringToLineArray(stringToSplit)
+{
+	return stringToSplit.split(/\r?\n/);
+}
+
+console.log(stringToLineArray(`test1
+test2
+test3`));
+
+
+
 
 
 //Tests that the script text contains a main function, and it has

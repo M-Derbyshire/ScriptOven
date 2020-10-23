@@ -17,7 +17,6 @@ function runFunctionOnInputText(functionText)
 		populateDynamicScript(functionText);
 		const resultText = main(inTextInput.value);
 		
-		//normal equality, so will also catch undefined
 		if(typeof resultText !== "string")
 		{
 			handleError('The given "main" function ran, but it did not return a valid string value.');

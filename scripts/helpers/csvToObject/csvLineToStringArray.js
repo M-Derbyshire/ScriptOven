@@ -1,7 +1,7 @@
 //Converts a line from a csv file into an array of string values.
 //When reading this code, think of the below example line:
 //*******************************************************
-// test,"test","te,st","",,"te""st"
+// test,"test","te,st","",,"te""st",test
 //*******************************************************
 
 function csvLineToStringArray(line)
@@ -17,6 +17,11 @@ function csvLineToStringArray(line)
 		//in the later conditionals, even though it's tested here)
 		if((line[i] === "," && !withinQuotes) || i === line.length - 1)
 		{
+			//If this was triggered because it's the end of the line, we
+			//also want to push this char onto the current string (if not, a 
+			//comma triggered it, and we can ignore that).
+			if(i === line.length - 1) currentString += line[i];
+			
 			result.push(currentString);
 			currentString = "";
 		}
@@ -44,4 +49,4 @@ function csvLineToStringArray(line)
 }
 
 //A test case for if you change the above function
-// console.log(csvLineToStringArray('test,"test","te,st","",,"te""st"'));
+// console.log(csvLineToStringArray('test,"test","te,st","",,"te""st",test'));

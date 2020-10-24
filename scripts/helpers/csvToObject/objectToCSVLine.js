@@ -11,16 +11,7 @@ function objectToCSVLine(orderedHeaders, objectToConvert)
 	
 	for(let i = 0; i < orderedHeaders.length; i++)
 	{
-		currentValue = objectToConvert[orderedHeaders[i]].toString();
-		
-		//There are certain formatting rules that should be followed in CSV files
-		
-		// - If the value contains double-quotes, double them
-		currentValue = currentValue.replace(/["]/g, '""');
-		
-		// - If there are double-quote or comma characters, the value needs to be surround by double-quotes
-		if(/[,"]/.test(currentValue)) currentValue = `"${currentValue}"`;
-		
+		currentValue = convertStringToCSVCompliantString(objectToConvert[orderedHeaders[i]].toString());
 		result += (i === orderedHeaders.length - 1) ? currentValue : currentValue + ",";
 	}
 	

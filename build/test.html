@@ -380,6 +380,12 @@ function objectToCSVLine(orderedHeaders, objectToConvert)
 
 
 
+//Takes an array of string values, and converts them to one string, seperated by newlines
+function lineArrayToString(lines)
+{
+	return lines.join("\n");
+}
+
 // Takes a string (with multiple lines), and returns an array where
 //each line is an item.
 function stringToLineArray(stringToSplit)

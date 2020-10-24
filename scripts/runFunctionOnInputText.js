@@ -15,8 +15,22 @@ function runFunctionOnInputText(functionText)
 	try 
 	{
 		populateDynamicScript(functionText);
-		const resultText = main(inTextInput.value);
 		
+		
+		//Get the options object.
+		let optionsObj = {};
+		if(typeof options === typeof Function)
+		{
+			optionsObj = options();
+			if(optionsObj !== Object(optionsObj) || Array.isArray(optionsObj))
+			{
+				handleError('The given "options" function ran, but it did not return a valid object value.');
+				return;
+			}
+		}
+		
+		
+		const resultText = main(inTextInput.value);
 		if(typeof resultText !== "string")
 		{
 			handleError('The given "main" function ran, but it did not return a valid string value.');

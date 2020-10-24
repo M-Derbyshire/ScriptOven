@@ -216,9 +216,11 @@ function handleError(errorText)
 }
 
 //Converts a line from a csv file into an array of string values.
-//When reading this code, think of the below example line:
+//When reading this code, think of the below example lines:
 //*******************************************************
 // test,"test","te,st","",,"te""st",test
+// test,"test"
+// test,"""test"""
 //*******************************************************
 
 function csvLineToStringArray(line)
@@ -226,6 +228,8 @@ function csvLineToStringArray(line)
 	let result = [];
 	let currentString = "";
 	let withinQuotes = false; //Is the current character within outer quotes (Don't include inner escaped quotes)?
+	let valueStartPosition = 0; //The index of the starting character in the current field
+	let valueEndPosition = 0;
 	
 	for(let i = 0; i < line.length; i++)
 	{
@@ -234,39 +238,36 @@ function csvLineToStringArray(line)
 		//in the later conditionals, even though it's tested here)
 		if((line[i] === "," && !withinQuotes) || i === line.length - 1)
 		{
-			//If this was triggered because it's the end of the line, we
-			//also want to push this char onto the current string (if not, a 
-			//comma triggered it, and we can ignore that).
-			if(i === line.length - 1) currentString += line[i];
+			valueEndPosition = (i === line.length - 1) ? i + 1 : i; //We'll need to include the last character of the line
+			if(line[valueEndPosition - 1] === '"') valueEndPosition--; //We don't want to include the closing brace (if there's inner braces, there's also outer)
 			
-			result.push(currentString);
-			currentString = "";
+			result.push(line.substring(valueStartPosition, valueEndPosition));
+			valueStartPosition = i + 1;
 		}
-		//entering or leaving the outer-quotes of a field
-		//(need to ignore escaped quote chars)
+		//If entering or leaving the outer-quotes of a field
+		//(need to ignore escaped quote chars). Also need to 
+		//increase the valueStartPosition if this is an opening
+		//mark, so we don't include the quote mark
 		else if(line[i] === '"' && (!withinQuotes || 
 			(i === line.length - 1 || line[i+1] !== '"'))) 
 		{
 			withinQuotes = !withinQuotes
+			if(withinQuotes) valueStartPosition = i + 1;
 		}
-		// If reaching an escaped double-quote, just record one and skip the other
+		// If reaching an escaped double-quote, just remove one (and then next run will skip over the other)
 		else if(withinQuotes && line[i] === '"' && i !== line.length - 1 && line[i+1] === '"')
 		{
-			currentString += '"';
-			i++;
-		}
-		//Finally, just add the current character to the current string value
-		else
-		{
-			currentString += line[i];
+			line = line.slice(0, i) + line.slice(i + 1);
 		}
 	}
 	
 	return result;
 }
 
-//A test case for if you change the above function
+//Some test cases for if you change the above function
 // console.log(csvLineToStringArray('test,"test","te,st","",,"te""st",test'));
+// console.log(csvLineToStringArray('test,"test"'));
+// console.log(csvLineToStringArray('test,"""test"""'));
 
 // Takes an array of strings (each one being a line of CSV data).
 

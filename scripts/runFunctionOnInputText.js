@@ -17,7 +17,7 @@ function runFunctionOnInputText(functionText)
 		populateDynamicScript(functionText);
 		
 		
-		//Get the options object.
+		//Get the options object -----------------------------------------------
 		let optionsObj = {};
 		if(typeof options === typeof Function)
 		{
@@ -30,14 +30,31 @@ function runFunctionOnInputText(functionText)
 		}
 		
 		
-		const resultText = main(inTextInput.value);
-		if(typeof resultText !== "string")
+		//Test any assertions ------------------------------------------------
+		let assertionsResult; //Also used later when deciding if we should run main()
+		
+		if(typeof assertions === typeof Function)
 		{
-			handleError('The given "main" function ran, but it did not return a valid string value.');
-			return;
+			assertionsResult = testAssertions(assertions(), main, optionsObj);
+			if(assertionsResult !== "pass")
+			{
+				outTextOuput.value = assertionsResult;
+			}
 		}
 		
-		outTextOuput.value = resultText;
+		
+		//Run the main() function ----------------------------------------
+		if(typeof assertionsResult === "undefined" || assertionsResult === "pass")
+		{
+			const resultText = main(inTextInput.value);
+			if(typeof resultText !== "string")
+			{
+				handleError('The given "main" function ran, but it did not return a valid string value.');
+				return;
+			}
+			outTextOuput.value = resultText;
+		}
+		
 		
 		//Need to update the download URL on the out-text download link
 		updateOutTextDownloadURL();
@@ -45,6 +62,5 @@ function runFunctionOnInputText(functionText)
 	catch (err) 
 	{
 		handleError(err);
-		return;
 	}
 }

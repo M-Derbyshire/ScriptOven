@@ -6,6 +6,9 @@
 
 // This will return an array of objects, where the property names are
 //the column headers, and the data is mapped to the correct properties.
+
+// If one of the passed csv lines doesn't contain enough fields, this 
+//will throw an exception.
 function csvToObjectsArray(csvLines, headers = [])
 {
 	//If no headers are explicitly provided, we use the first row
@@ -21,6 +24,8 @@ function csvToObjectsArray(csvLines, headers = [])
 	for(let lineIter = 0; lineIter < csvLines.length; lineIter++)
 	{
 		currentLineArray = csvLineToStringArray(csvLines[lineIter]);
+		if(currentLineArray.length !== headers.length) throw `The following line does not contain enough fields (${headers.length} fields were expected): "${csvLines[lineIter]}"`;
+		
 		result[lineIter] = {};
 		
 		for(let propertyIter = 0; propertyIter < headers.length; propertyIter++)

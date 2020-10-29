@@ -383,16 +383,19 @@ function csvToObjectsArray(csvLines, headers = [])
 	
 	for(let lineIter = 0; lineIter < csvLines.length; lineIter++)
 	{
-		currentLineArray = csvLineToStringArray(csvLines[lineIter]);
-		if(currentLineArray.length !== headers.length) throw `The following line does not contain enough fields (${headers.length} fields were expected): "${csvLines[lineIter]}"`;
 		
-		result[lineIter] = {};
-		
-		for(let propertyIter = 0; propertyIter < headers.length; propertyIter++)
-		{
-			result[lineIter][headers[propertyIter]] = currentLineArray[propertyIter];
-		}
 	}
+	
+	csvLines.forEach((line, lineIndex) => {
+		currentLineArray = csvLineToStringArray(line);
+		if(currentLineArray.length !== headers.length) throw `The following line does not contain enough fields (${headers.length} fields were expected): "${line}"`;
+		
+		result[lineIndex] = {};
+		
+		headers.forEach((header, headerIndex) => {
+			result[lineIndex][header] = currentLineArray[headerIndex];
+		});
+	});
 	
 	return result;
 }

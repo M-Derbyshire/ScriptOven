@@ -4,4 +4,6 @@ header {
 	border-bottom: none;
 	border-top-left-radius: 0.5em;
 	border-top-right-radius: 0.5em;
+	margin-bottom: 2em;
+	padding-bottom: 0.1em;
 }

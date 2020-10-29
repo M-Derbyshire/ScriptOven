@@ -4,6 +4,8 @@ footer {
 	border-top: none;
 	border-bottom-left-radius: 0.5em;
 	border-bottom-right-radius: 0.5em;
+	margin-top: 2em;
+	padding-top: 0.1em;
 }
 
 footer p {

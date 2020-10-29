@@ -30,17 +30,16 @@ function testAssertions(assertionArray, mainFunc, optionsObj)
 	
 	let currentTestResult;
 	
-	for(let i = 0; i < assertionArray.length; i++)
-	{
-		currentTestResult = mainFunc(assertionArray[i][0]);
-		if(currentTestResult !== assertionArray[i][1])
+	assertionArray.forEach(assertionData => {
+		currentTestResult = mainFunc(assertionData[0]);
+		if(currentTestResult !== assertionData[1])
 		{
 			failedTestResults.push([
-				assertionArray[i][1],
+				assertionData[1],
 				currentTestResult
 			]);
 		}
-	}
+	});
 	
 	if(failedTestResults.length === 0)
 	{

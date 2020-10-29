@@ -2,14 +2,8 @@ main label {
 	font-weight: bold;
 }
 
-main div {
-	margin: 0.25em auto;
-}
-
-/* Overwrite the above for 1st level of divs */
 main > div {
-	margin: 1em 0.75em;
-	padding: 0.5em 1em;
+	margin: 2em;
 }
 
 main > div > h2 {

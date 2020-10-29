@@ -13,20 +13,19 @@ function objectToCSVLine(orderedHeaders, objectToConvert)
 	let result = "";
 	let currentValue;
 	
-	for(let i = 0; i < orderedHeaders.length; i++)
-	{
+	orderedHeaders.forEach((header, index) => {
 		//First, check this object has a property matching the header name.
 		//If not, call handleError(), and then throw an exception
-		if(!objectToConvert.hasOwnProperty(orderedHeaders[i]))
+		if(!objectToConvert.hasOwnProperty(header))
 		{
-			const errText = `Error while converting an object to a CSV line. The object does not have a ${orderedHeaders[i]} property.`;
+			const errText = `Error while converting an object to a CSV line. The object does not have a ${header} property.`;
 			handleError(errText);
 			throw new Error(errText);
 		}
 		
-		currentValue = convertStringToCSVCompliantString(objectToConvert[orderedHeaders[i]].toString());
-		result += (i === orderedHeaders.length - 1) ? currentValue : currentValue + ",";
-	}
+		currentValue = convertStringToCSVCompliantString(objectToConvert[header].toString());
+		result += (index === orderedHeaders.length - 1) ? currentValue : currentValue + ",";
+	});
 	
 	return result;
 }

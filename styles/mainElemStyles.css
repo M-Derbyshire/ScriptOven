@@ -3,11 +3,19 @@ main label {
 }
 
 main > div {
-	margin: 2em;
+	margin: 0 2em;
 }
 
 main > div > h2 {
 	margin: 0.75em auto;
+}
+
+main > hr {
+	margin: 3em 4em;
+	border: none;
+	height: 1px;
+	color: #5a5c04;
+	background-color: #5a5c04;
 }
 
 main textarea {

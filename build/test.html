@@ -59,11 +59,19 @@ main label {
 }
 
 main > div {
-	margin: 2em;
+	margin: 0 2em;
 }
 
 main > div > h2 {
 	margin: 0.75em auto;
+}
+
+main > hr {
+	margin: 3em 4em;
+	border: none;
+	height: 1px;
+	color: #5a5c04;
+	background-color: #5a5c04;
 }
 
 main textarea {
@@ -110,10 +118,15 @@ main textarea:focus {
 		</header>
 		
 		<main>
+			
+			<hr />
+			
 			<div id="scriptUploadSection">
 				<label for="scriptFileInput">Script file to use: </label>
 				<input type="file" id="scriptFileInput" />
 			</div>
+			
+			<hr />
 			
 			<div id="inTextSection">
 				<h2>Function Input</h2>
@@ -123,9 +136,13 @@ main textarea:focus {
 				</div>
 			</div>
 			
+			<hr />
+			
 			<div id="runButtonSection">
 				<button id="runFunctionButton">Run Function</button>
 			</div>
+			
+			<hr />
 			
 			<div id="outTextSection">
 				<h2>Function Output</h2>
@@ -140,6 +157,9 @@ main textarea:focus {
 					<button disabled id="outTextDownloadButton">Download Output</button>
 				</a>
 			</div>
+			
+			<hr />
+			
 		</main>
 		
 		<footer>

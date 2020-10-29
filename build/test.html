@@ -18,11 +18,18 @@ a:hover {
 	color: #007979;
 }
 
-header, main, footer {
+header, footer {
 	border: 1px solid #989b04;
-	border-radius: 0.5em;
 	margin: 0.5em auto;
-	padding: 0.5em;
+	padding: 0.25em 1.25em;
+}
+
+/* There are some styles for this in bodyStyles.css as well (shared with the header) */
+
+footer {
+	border-top: none;
+	border-bottom-left-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
 }
 
 footer p {
@@ -36,6 +43,14 @@ footer p {
 	margin: 0.5em auto;
 }
 
+/* There are some styles for this in bodyStyles.css as well (shared with the footer) */
+
+header {
+	border-bottom: none;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+
 main label {
 	font-weight: bold;
 }
@@ -46,7 +61,7 @@ main div {
 
 /* Overwrite the above for 1st level of divs */
 main > div {
-	margin: 1em auto;
+	margin: 1em 0.75em;
 	border: 1px solid #5a5c04;
 	border-radius: 0.5em;
 	padding: 0.5em 1em;

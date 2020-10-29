@@ -1,0 +1,7 @@
+/* There are some styles for this in bodyStyles.css as well (shared with the footer) */
+
+header {
+	border-bottom: none;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}

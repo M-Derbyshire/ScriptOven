@@ -1,3 +1,11 @@
+/* There are some styles for this in bodyStyles.css as well (shared with the header) */
+
+footer {
+	border-top: none;
+	border-bottom-left-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
+}
+
 footer p {
 	margin: 0.5em auto;
 	font-size: larger;

@@ -9,8 +9,6 @@ main div {
 /* Overwrite the above for 1st level of divs */
 main > div {
 	margin: 1em 0.75em;
-	border: 1px solid #5a5c04;
-	border-radius: 0.5em;
 	padding: 0.5em 1em;
 }
 
@@ -39,6 +37,8 @@ main textarea:focus {
 #runButtonSection {
 	padding: 1em;
 	background: #01294b;
+	border: 1px solid #5a5c04;
+	border-radius: 0.5em;
 }
 
 #runButtonSection button {

@@ -146,12 +146,11 @@ function generateFailedAssertionsResult(failedTestResults)
 {
 	let resultText = `There were ${failedTestResults.length} failed assertions:`;
 	
-	for(let i = 0; i < failedTestResults.length; i++)
-	{
+	failedTestResults.forEach((testResult, index) => {
 		resultText += `\n\n**********`;
-		resultText += `\n\n - Expected result (${i + 1}): \n"${failedTestResults[i][0]}"`;
-		resultText += `\n\n - Actual result (${i + 1}): \n"${failedTestResults[i][1]}"`;
-	}
+		resultText += `\n\n - Expected result (${index + 1}): \n"${testResult[0]}"`;
+		resultText += `\n\n - Actual result (${index + 1}): \n"${testResult[1]}"`;
+	});
 	
 	return resultText;
 }

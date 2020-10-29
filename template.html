@@ -9,63 +9,64 @@
 		<script id="dynamicScript"></script>
 	</head>
 	<body>
-		
-		<header>
-			<h1>Cephalopod</h1>
-		</header>
-		
-		<main>
+		<div id="appContainer">
+			<header>
+				<h1>Cephalopod</h1>
+			</header>
 			
-			<hr />
-			
-			<div id="scriptUploadSection">
-				<label for="scriptFileInput">Script file to use: </label>
-				<input type="file" id="scriptFileInput" />
-			</div>
-			
-			<hr />
-			
-			<div id="inTextSection">
-				<h2>Function Input</h2>
-				<textarea id="inTextInput" wrap="off">Enter the text to be passed to the function here (Or upload a file with the button below).</textarea>
-				<div id="inTextFileUploadSection">
-					<input type="file" id="inTextFileInput" />
-				</div>
-			</div>
-			
-			<hr />
-			
-			<div id="runButtonSection">
-				<button id="runFunctionButton">Run Function</button>
-			</div>
-			
-			<hr />
-			
-			<div id="outTextSection">
-				<h2>Function Output</h2>
-				<textarea id="outTextOuput" wrap="off" readonly>Results will be outputted here.</textarea>
+			<main>
 				
-				<!-- The action for the below form will be set to the download link, 
-					whenever the out-text changes -->
-				<!-- The file name of the download will be changed on keyup -->
-				<input type="text" id="downloadFileNameInput" value="File Name" />
-				<a id="outTextDownloadLink" download="generated_text.txt">
-					<!-- The button should be enabled when the main function is run -->
-					<button disabled id="outTextDownloadButton">Download Output</button>
-				</a>
-			</div>
+				<hr />
+				
+				<div id="scriptUploadSection">
+					<label for="scriptFileInput">Script file to use: </label>
+					<input type="file" id="scriptFileInput" />
+				</div>
+				
+				<hr />
+				
+				<div id="inTextSection">
+					<h2>Function Input</h2>
+					<textarea id="inTextInput" wrap="off">Enter the text to be passed to the function here (Or upload a file with the button below).</textarea>
+					<div id="inTextFileUploadSection">
+						<input type="file" id="inTextFileInput" />
+					</div>
+				</div>
+				
+				<hr />
+				
+				<div id="runButtonSection">
+					<button id="runFunctionButton">Run Function</button>
+				</div>
+				
+				<hr />
+				
+				<div id="outTextSection">
+					<h2>Function Output</h2>
+					<textarea id="outTextOuput" wrap="off" readonly>Results will be outputted here.</textarea>
+					
+					<!-- The action for the below form will be set to the download link, 
+						whenever the out-text changes -->
+					<!-- The file name of the download will be changed on keyup -->
+					<input type="text" id="downloadFileNameInput" value="File Name" />
+					<a id="outTextDownloadLink" download="generated_text.txt">
+						<!-- The button should be enabled when the main function is run -->
+						<button disabled id="outTextDownloadButton">Download Output</button>
+					</a>
+				</div>
+				
+				<hr />
+				
+			</main>
 			
-			<hr />
-			
-		</main>
-		
-		<footer>
-			<p>Developed by Matthew Derbyshire</p>
-			<ul id="profileLinksList">
-				<li><a id="twitterLink" target="_blank" href="https://twitter.com/mattdarbs">My Twitter</a></li>
-				<li><a id="githubLink" target="_blank" href="https://github.com/M-Derbyshire">My GitHub</a></li>
-			</ul>
-		</footer>
+			<footer>
+				<p>Developed by Matthew Derbyshire</p>
+				<ul id="profileLinksList">
+					<li><a id="twitterLink" target="_blank" href="https://twitter.com/mattdarbs">My Twitter</a></li>
+					<li><a id="githubLink" target="_blank" href="https://github.com/M-Derbyshire">My GitHub</a></li>
+				</ul>
+			</footer>
+		</div>
 		
 		
 		<script id="standardScripts">

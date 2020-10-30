@@ -1,3 +1,12 @@
+/*
+Example input text:
+
+column1,column2,column3
+I like dogs.,I like frogs.,I like hogs.
+I like cats,I like bats,I like rats
+
+*/
+
 function main(inputString)
 {
 	//Take the word "like", and replace it with "love".

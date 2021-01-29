@@ -1,5 +1,5 @@
 # ScriptOven
-## A browser-based application for data manipulation, not matter who's machine you're using.
+## A browser-based application for data manipulation, no matter who's machine you're using.
 
 ScriptOven was designed for people who would like to manipulate data with their own scripts, but who don't have the access permissions to use a command shell, or to install a scripting language (such as Perl or Python).
 
